@@ -7,8 +7,9 @@
 
 import java.awt.BorderLayout;
 import java.util.ArrayList;
-import javax.swing.JTable;
 import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.ScrollPaneLayout;
 
 /**
  *
@@ -43,11 +44,11 @@ public class ErrorReport extends javax.swing.JFrame {
         jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
         jInternalFrame1Layout.setHorizontalGroup(
             jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 845, Short.MAX_VALUE)
+            .addGap(0, 729, Short.MAX_VALUE)
         );
         jInternalFrame1Layout.setVerticalGroup(
             jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 462, Short.MAX_VALUE)
+            .addGap(0, 398, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -74,14 +75,16 @@ public class ErrorReport extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public void setTable(ArrayList<String> data){
-       
         int len = data.size();
         String [][] rowData = new String[len][5];
         for(int i=0;i<len;i++){
           rowData[i]=data.get(i).split(",");
           System.out.println(data.get(i));
         }
+   
         String [] colNames = {"Date Time","Incident Type","Response","Financial Status Pre Incident","Financial Status Pre Incident"}; 
+        
+       
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -105,12 +108,11 @@ public class ErrorReport extends javax.swing.JFrame {
         }
         //</editor-fold>
         /* Create and display the form */
-        
         table = new JTable(rowData,colNames);
-        table.setFillsViewportHeight(true);
-        tablePanel = new JScrollPane(table);
-        jInternalFrame1.add(tablePanel);
-        //jInternalFrame1.setVisible(true);
+        jInternalFrame1.setLayout(new BorderLayout());
+        jInternalFrame1.add(table.getTableHeader(), BorderLayout.PAGE_START);
+        jInternalFrame1.add(table, BorderLayout.CENTER);
+        
     }
     private javax.swing.JScrollPane tablePanel;
     private javax.swing.JTable table;
