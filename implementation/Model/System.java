@@ -5,17 +5,17 @@ import java.util.*;
  * 
  */
 public abstract class System {
-
     /**
      * Default constructor
      */
     public System() {
+    	
     }
 
     /**
      * 
      */
-    public DataBaseHelper database;
+    public DatabaseHelper database;
 
     /**
      * 
@@ -24,19 +24,15 @@ public abstract class System {
 
 
 
-
-
-
-
-
-
-
     /**
      * @return
      */
-    public void setUpDatabase() {
+    public void setUpDatabase() 
+    {
         // TODO implement here
-        return null;
+    	database.createDataBase();
+    //	database.getMachineConfig();
+    	
     }
 
     /**
@@ -44,22 +40,27 @@ public abstract class System {
      */
     public void runServer() {
         // TODO implement here
-        return null;
+       server.sendData();
     }
 
     /**
      * @return
      */
     public void reset() {
-        // TODO implement here
-        return null;
+         int n;
+		// TODO implement here
+    	//DatabaseHelper database = new DatabaseHelper();
+    	  database.deleteTable(n);
+    	  database.dBclose();
+    	  DatabaseHelper database;
+    	  database.dBopen();
     }
 
     /**
      * @return
      */
     public abstract void reorder();
-
+    	
     /**
      * @return
      */
