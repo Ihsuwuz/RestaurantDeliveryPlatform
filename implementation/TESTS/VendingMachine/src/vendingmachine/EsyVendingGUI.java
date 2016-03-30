@@ -24,6 +24,7 @@ public class EsyVendingGUI{
      */
     private ObservableVals ov = null;
     private EVOserver to = null;
+    
     public MainMenu mainMenu;
     public ErrorDialog dialog;
     public Login login;

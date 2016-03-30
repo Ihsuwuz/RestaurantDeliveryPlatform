@@ -31,7 +31,6 @@ public class EVOserver implements Observer{
             + so we need to listen for a change in these values
             + find out which variable has changed
             + Act accordingly
-          
           */
          // that the loginListener observer when user enters save we can access
           // the new data fields
