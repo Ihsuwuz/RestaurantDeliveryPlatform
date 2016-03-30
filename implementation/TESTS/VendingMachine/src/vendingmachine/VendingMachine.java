@@ -6,7 +6,7 @@
 package vendingmachine;
 
 public class VendingMachine extends EVSystem{
-    
+   
     private Slot[] slots = new  Slot[20];
     
     public VendingMachine(){

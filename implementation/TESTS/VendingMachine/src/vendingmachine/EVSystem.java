@@ -16,7 +16,9 @@ public abstract class EVSystem {
      * 
      */
     protected final DatabaseHelper database;
+    protected double overAllProductValue;
 
+    
     /**
      * 
      */
@@ -36,6 +38,13 @@ public abstract class EVSystem {
      /**
      * @return
      */
+    public double getOverAllProductValue() {
+        return overAllProductValue;
+    }
+
+    public void setOverAllProductValue(double overAllProductValue) {
+        this.overAllProductValue = overAllProductValue;
+    }
     public void setUpDatabase() 
     {
         // TODO implement here
