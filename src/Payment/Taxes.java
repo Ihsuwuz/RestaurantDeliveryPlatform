@@ -5,11 +5,17 @@
  */
 package Payment;
 
+import Restaurant.Dish;
+import java.util.*;
 /**
  *
  * @author Ih
  */
 public class Taxes extends BillDecorator{
+    private TotalPrice getTaxPrice;
+    private Dish someDish;
+    private double dishPrice;
+    ArrayList<Double> tot = new ArrayList<>();
     
     public Taxes(BillInterface newBill) {
         super(newBill);
@@ -17,6 +23,33 @@ public class Taxes extends BillDecorator{
     
     @Override
     public String getBill(){
-        return tempBill.getBill() + "Taxes are: TotalPrice/5 ";
+        return tempBill.getBill() + " \n Taxes are: " + getTaxedBill();
+                
     }   
+    public String getTaxedBill(){
+         dishPrice = someDish.getDishPrice();
+         tot.add(dishPrice);
+         String tx = getTaxPrice.getTotalPrice(tot);
+         /*double tax =0.0;
+         for(int j= 0; j< tot.size(); j++){
+             tax = (tax + tot.get(j))/5;
+         }*/
+         return " \n Taxes are: TotalPrice/5 "
+                 + String.valueOf(Double.parseDouble(tx)/(5)) ;
+    }
+
+    @Override
+    public String addFood() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String addDrink() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String addDessert() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

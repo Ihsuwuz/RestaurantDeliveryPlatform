@@ -14,6 +14,7 @@ public class DishFactory {
     //Singleton Pattern
     private static DishFactory INSTANCE = null;
     private DishFactory(){}
+    
     public DishFactory getInstance() {
 	if (INSTANCE == null)
             INSTANCE = new DishFactory();
@@ -24,19 +25,19 @@ public class DishFactory {
         //TODO: constructors which make sense
         switch (dishType) {
             case FOOD:
-                return new Food();
-                    
+                return new Food(name, price);
+                     
             case DESSERT:
-                return new Dessert();
+                return new Dessert(name, price);
                          
             case ALCDRINK:
-                return new Drink();
+                return new Drink(name, price);
                 
             case SOFTDRINK:
-                return new Drink();
+                return new Drink(name, price);
                 
             default:
-                return null;
+               throw new UnsupportedOperationException("Not supported yet.");
         }
     }
 }

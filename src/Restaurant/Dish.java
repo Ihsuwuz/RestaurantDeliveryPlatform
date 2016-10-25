@@ -11,13 +11,18 @@ package Restaurant;
  */
 public abstract class Dish {
     protected String dishName;
-    protected String dishPrice;
-
+    protected double dishPrice;
+    
+    public Dish(String n, double p){
+      dishName = n;
+      dishPrice = p;
+    }
+    
     public String getDishName() {
         return dishName;
     }
 
-    public String getDishPrice() {
+    public double getDishPrice() {
         return dishPrice;
     }
 
@@ -25,7 +30,7 @@ public abstract class Dish {
         this.dishName = dishName;
     }
 
-    public void setDishPrice(String dishPrice) {
+    public void setDishPrice(double dishPrice) {
         this.dishPrice = dishPrice;
     }
     

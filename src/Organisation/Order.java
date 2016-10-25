@@ -10,17 +10,23 @@ import Payment.Bill;
 import Restaurant.Dish;
 import Restaurant.Restaurant;
 import Customer.Customer;
-import java.util.List;
+import java.util.*;
 
 /**
  *
  * @author Ih
  */
 public class Order implements Subject{
-    private List<Dish> dishList;
+    private ArrayList<Dish> dishList = new ArrayList<>();
+    private ArrayList<Bill> bm = new ArrayList<>();
+    private ArrayList<String> productOrdered = new ArrayList<>();
     private Restaurant restaurant;
     private Customer customer;
     private Bill bill;
+    private double p;
+    private Dish pickDish;
+    
+    public Order(){}
     
     public String printBill(){
         return bill.getBill();
@@ -30,23 +36,35 @@ public class Order implements Subject{
         //TODO: execute the Order
     }
     
-    public void addDish(Dish d){
-        dishList.add(d);
+    public String addDish(Dish d){
+       String aD = d.getDishName();
+       dishList.add(d);
+       return aD;       
     }
 
     @Override
     public void register(Observer obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        pickDish.getDishName();
+        bill.getOrderBill();
+       
+       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void unregister(Observer obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        bill.cancelBill();
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void notifyObservers() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        for(Bill m : bm){
+          // this.register(m);
+           m.update(p);
+           bill.update(this.p);
+           
+        }
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

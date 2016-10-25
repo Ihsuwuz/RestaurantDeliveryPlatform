@@ -5,11 +5,15 @@
  */
 package Payment;
 
+import Restaurant.Restaurant;
+
 /**
  *
  * @author Ih
  */
 public class RestaurantName extends BillDecorator {
+    
+    private Restaurant aName;
     
     public RestaurantName(BillInterface newBill) {
         super(newBill);
@@ -19,4 +23,23 @@ public class RestaurantName extends BillDecorator {
     public String getBill(){
         return tempBill.getBill() + "RestaurantName";
     } 
+    
+    public String getName(){
+        return aName.getRestaurantName() ;
+    }
+
+    @Override
+    public String addFood() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String addDrink() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String addDessert() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

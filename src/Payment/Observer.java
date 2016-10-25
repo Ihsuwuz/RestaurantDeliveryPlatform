@@ -13,6 +13,6 @@ import Organisation.Subject;
  * @author Ih
  */
 public interface Observer {
-    public void update();
+    public void update(double bill);
     public void setSubject(Subject sub);
 }

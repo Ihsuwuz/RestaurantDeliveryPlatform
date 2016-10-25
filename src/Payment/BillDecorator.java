@@ -9,16 +9,24 @@ package Payment;
  *
  * @author Ih
  */
-abstract class BillDecorator implements BillInterface {
-    protected BillInterface tempBill;
+//import java.util.ArrayList;
 
+abstract public class BillDecorator implements BillInterface {
+    protected BillInterface tempBill;
+    //private ArrayList<OrderList> payType;
 
     public BillDecorator(BillInterface newBill){
         tempBill = newBill;
+        
     }
-    
+  
     @Override
     public String getBill(){
         return tempBill.getBill();
     }
+    
+    public abstract String addFood();
+    public abstract String addDrink();
+    public abstract String addDessert();
+   
 }

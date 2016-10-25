@@ -27,7 +27,7 @@ public class Customer {
     }
     
     public boolean logIn(String pw, String n){
-        if (pw == password && n == name)
+        if (pw.equals(password) && n.equals(name))
             logInStatus = true;
         return logInStatus;
     }

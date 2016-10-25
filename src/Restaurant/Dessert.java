@@ -11,4 +11,7 @@ package Restaurant;
  */
 public class Dessert extends Dish{
     
+     public Dessert(String name, double price){
+        super(name, price);
+    }
 }
